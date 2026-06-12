@@ -12,7 +12,7 @@ and recording CPU-run shaders.
 
 # How to Use
 
-**Prerequisites:** [Rust](https://rustup.rs/) and [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/).
+**Prerequisites:** [Rust](https://rustup.rs/) and [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/). (Tested on Linux.)
 
 ```bash
 # Build the Rust → WASM package

@@ -5,6 +5,7 @@ mod frag1;
 mod frag2;
 mod frag3;
 mod frag4;
+mod frag5;
 
 fn get_shader(index: u32) -> ShaderFn {
     match index {
@@ -12,6 +13,7 @@ fn get_shader(index: u32) -> ShaderFn {
         2 => frag2::fragment_shader,
         3 => frag3::fragment_shader,
         4 => frag4::fragment_shader,
+        5 => frag5::fragment_shader,
         _ => frag1::fragment_shader,
     }
 }
