@@ -6,12 +6,11 @@ async function run() {
   const configRes = await fetch('config.json');
   const config = await configRes.json();
 
-  const canvasWidth = config.canvas.width;
-  const canvasHeight = config.canvas.height;
-  const imageWidth = config.image.width;
-  const imageHeight = config.image.height;
+  let imageWidth = config.size || 300;
+  let imageHeight = config.size || 300;
   const defaultDuration = config.recording.duration;
   const defaultFps = config.recording.fps;
+  const shaderIndex = config.shader || 1;
 
   // auto-reload on rebuild
   (async () => {
@@ -27,8 +26,8 @@ async function run() {
 
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
-  canvas.width = canvasWidth;
-  canvas.height = canvasHeight;
+  canvas.width = imageWidth;
+  canvas.height = imageHeight;
 
   const fpsEl = document.getElementById('fps');
   let frameCount = 0;
@@ -46,7 +45,7 @@ async function run() {
       frameCount = 0;
       fpsTime = now;
     }
-    const pixels = render_frame(imageWidth, imageHeight, now / 1000);
+    const pixels = render_frame(imageWidth, imageHeight, now / 1000, shaderIndex);
     const imageData = new ImageData(new Uint8ClampedArray(pixels.buffer, pixels.byteOffset, pixels.byteLength), imageWidth, imageHeight);
     ctx.putImageData(imageData, 0, 0);
     animId = requestAnimationFrame(frame);
@@ -61,6 +60,19 @@ async function run() {
 
   recDuration.value = defaultDuration;
   recFps.value = defaultFps;
+
+  const sizeSlider = document.getElementById('size-slider');
+  const sizeLabel = document.getElementById('size-label');
+  sizeSlider.value = imageWidth;
+  sizeLabel.textContent = imageWidth;
+  sizeSlider.addEventListener('input', () => {
+    const s = parseInt(sizeSlider.value);
+    sizeLabel.textContent = s;
+    imageWidth = s;
+    imageHeight = s;
+    canvas.width = s;
+    canvas.height = s;
+  });
 
   recBtn.addEventListener('click', async () => {
     if (recording) return;
@@ -80,7 +92,7 @@ async function run() {
       const frameData = [];
       for (let i = 0; i < totalFrames; i++) {
         const time = i / fps;
-        const pixels = render_frame(imageWidth, imageHeight, time);
+        const pixels = render_frame(imageWidth, imageHeight, time, shaderIndex);
         const imageData = new ImageData(new Uint8ClampedArray(pixels.buffer, pixels.byteOffset, pixels.byteLength), imageWidth, imageHeight);
         frameData.push(imageData.data.slice());
         recStatus.textContent = `${i + 1} / ${totalFrames}`;

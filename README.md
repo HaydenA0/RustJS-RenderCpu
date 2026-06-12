@@ -10,6 +10,22 @@ WebAssembly. I then used an LLM to assist with the HTML canvas integration and
 the JavaScript glue code. The final result is a basic demo capable of rendering
 and recording CPU-run shaders.
 
+# How to Use
+
+**Prerequisites:** [Rust](https://rustup.rs/) and [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/).
+
+```bash
+# Build the Rust → WASM package
+make build
+
+# Start the dev server (auto-rebuilds on src/ changes)
+make run
+```
+
+Open `http://localhost:8000` in a browser. Use the slider to adjust resolution, set duration/FPS, and click **Record** to render and download a `.webm` video.
+
+Switch shaders by editing the `"shader"` field in `config.json` (values 1–4 map to `src/frag1.rs`–`src/frag4.rs`).
+
 # Results
 
 The following benchmarks were recorded on an **11th Gen Intel® Core™ i5-11400H @ 2.70GHz**:
