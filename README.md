@@ -39,6 +39,9 @@ The following benchmarks were recorded on an **11th Gen Intel® Core™ i5-11400
 ### Sphere
 [sphere_10s_30fps_1920x1080.webm](https://github.com/user-attachments/assets/af543e3c-6d5f-40ab-832e-9c2d2e888de9)
 
+### Box
+[recording_10s_30fps_712x712.webm](https://github.com/user-attachments/assets/ba07bf85-51e8-49c6-abd6-9e212ecd8f5d)
+
 
 *Shader formulas adapted from:* [Xor](https://x.com/XorDev)
 
