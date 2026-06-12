@@ -8,11 +8,23 @@
   body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #111; font-family: monospace; }
   canvas { max-width: 100vw; max-height: 100vh; image-rendering: pixelated; }
   #fps { position: fixed; top: 8px; left: 8px; color: #0f0; font-size: 14px; pointer-events: none; }
+  #record-controls { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; align-items: center; background: rgba(0,0,0,0.8); padding: 10px 16px; border-radius: 8px; color: #ccc; font-size: 13px; }
+  #record-controls input { width: 60px; background: #222; border: 1px solid #555; color: #fff; padding: 4px 6px; border-radius: 4px; font-family: monospace; font-size: 13px; }
+  #record-controls button { background: #c00; color: #fff; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-family: monospace; font-size: 13px; font-weight: bold; }
+  #record-controls button:disabled { background: #666; cursor: default; }
+  #record-controls button.recording { background: #800; }
+  #record-status { color: #0f0; font-size: 13px; min-width: 200px; text-align: center; }
 </style>
 </head>
 <body>
 <canvas id="canvas"></canvas>
 <div id="fps">FPS: --</div>
+<div id="record-controls">
+  <label>Duration (s): <input type="number" id="rec-duration" value="10" min="1" max="300"></label>
+  <label>FPS: <input type="number" id="rec-fps" value="24" min="1" max="60"></label>
+  <button id="rec-btn">Record</button>
+  <span id="rec-status"></span>
+</div>
 <script type="module" src="index.js"></script>
 </body>
 </html>

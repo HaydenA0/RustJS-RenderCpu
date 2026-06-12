@@ -1,0 +1,14 @@
+{
+  "canvas": {
+    "width": 1024,
+    "height": 768
+  },
+  "image": {
+    "width": 1024,
+    "height": 768
+  },
+  "recording": {
+    "duration": 10,
+    "fps": 30
+  }
+}
