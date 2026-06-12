@@ -6,7 +6,7 @@ build:
 	wasm-pack build --target web --out-dir pkg
 
 run:
-	python3 server.py
+	@fuser -k 8000/tcp 2>/dev/null || true; python3 server.py
 
 clean:
 	rm -rf pkg

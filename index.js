@@ -22,7 +22,19 @@ async function run() {
   canvas.width = width;
   canvas.height = height;
 
+  const fpsEl = document.getElementById('fps');
+  let lastFrame = 0;
+  let frameCount = 0;
+  let fpsTime = 0;
+
   function frame(now) {
+    frameCount++;
+    if (now - fpsTime >= 1000) {
+      fpsEl.textContent = `FPS: ${frameCount}`;
+      frameCount = 0;
+      fpsTime = now;
+    }
+
     const pixels = render_frame(width, height, now / 1000);
     const imageData = new ImageData(new Uint8ClampedArray(pixels.buffer), width, height);
     ctx.putImageData(imageData, 0, 0);

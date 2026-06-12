@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CPU Image JS</title>
 <style>
-  body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #111; }
+  body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #111; font-family: monospace; }
   canvas { max-width: 100vw; max-height: 100vh; image-rendering: pixelated; }
+  #fps { position: fixed; top: 8px; left: 8px; color: #0f0; font-size: 14px; pointer-events: none; }
 </style>
 </head>
 <body>
 <canvas id="canvas"></canvas>
+<div id="fps">FPS: --</div>
 <script type="module" src="index.js"></script>
 </body>
 </html>

@@ -7,4 +7,5 @@ edition = "2024"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
+glam = "0.33.1"
 wasm-bindgen = "0.2"

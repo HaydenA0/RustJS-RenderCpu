@@ -56,6 +56,7 @@ if __name__ == '__main__':
     print('Initial build...')
     rebuild()
     threading.Thread(target=watcher, daemon=True).start()
+    socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(('', PORT), Handler) as httpd:
         print(f'Serving on http://localhost:{PORT}')
         httpd.serve_forever()
