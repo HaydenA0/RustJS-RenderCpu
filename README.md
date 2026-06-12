@@ -15,13 +15,14 @@ and recording CPU-run shaders.
 The following benchmarks were recorded on an **11th Gen Intel® Core™ i5-11400H @ 2.70GHz**:
 
 ### Blackhole
-<video src="./videos/blackhole_3s_30fps_1920x1080.webm" controls width="100%"></video>
+[blackhole_3s_30fps_1920x1080.webm](https://github.com/user-attachments/assets/991bf08c-e247-491b-bed2-21d61eebeb29)
 
 ### Fireworks
-<video src="./videos/fireworks_10s_30fps_1024x768.webm" controls width="100%"></video>
+[fireworks_10s_30fps_1024x768.webm](https://github.com/user-attachments/assets/8b71dc7a-ff78-468f-aee8-105b79316921)
 
 ### Sphere
-<video src="./videos/sphere_10s_30fps_1920x1080.webm" controls width="100%"></video>
+[sphere_10s_30fps_1920x1080.webm](https://github.com/user-attachments/assets/af543e3c-6d5f-40ab-832e-9c2d2e888de9)
+
 
 *Shader formulas adapted from:* [Xor](https://x.com/XorDev)
 
